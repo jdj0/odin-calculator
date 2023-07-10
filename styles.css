@@ -1,5 +1,13 @@
 body {
     font-size: 24px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.calculator {
+    margin-top: 50px;
 }
 
 .screen {
@@ -23,4 +31,10 @@ body {
 .button{
     padding: 10px;
     background-color: gainsboro;
+}
+
+.button:hover{
+    background-color: black;
+    color: antiquewhite;
+    transition: 0.5s
 }
