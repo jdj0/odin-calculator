@@ -1,5 +1,5 @@
 body {
-    font-size: 24px;
+    font-size: 32px;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -11,30 +11,36 @@ body {
 }
 
 .screen {
+    display: flex;
+    justify-content:flex-end;
+    align-items:center;
     padding-top: 10px;
     padding-bottom: 10px;
-    width: 204px;
+    height: 100px;
+    width: 404px;
     background-color: #ededed;
 }
 
-.output {
+#output {
     text-align: right;
+    padding-right: 25px;
+    overflow: hidden;
 }
 
 .buttons {
     display: grid;
-    grid-template-columns: 50px 50px 50px 50px;
+    grid-template-columns: repeat(4, 100px);
     gap: 1px;
-    text-align: center;
-}
+  }
 
 .button{
-    padding: 10px;
+    height: 100px;
     background-color: gainsboro;
+    text-align: center;
 }
 
 .button:hover{
     background-color: black;
     color: antiquewhite;
-    transition: 0.5s
+    transition: 0.3s
 }
