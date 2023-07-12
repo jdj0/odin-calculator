@@ -11,7 +11,7 @@ const eight = document.getElementById('8');
 const nine = document.getElementById('9');
 const plus = document.getElementById('+');
 const minus = document.getElementById('-');
-const times = document.getElementById('x');
+const multiply = document.getElementById('x');
 const divide = document.getElementById('÷');
 const equals = document.getElementById('=');
 const trash = document.getElementById('trash');
@@ -69,6 +69,12 @@ minus.addEventListener('click', function(){
     screen.textContent = '';
 })
 
+multiply.addEventListener('click', function(){
+    operator = '*'
+    num1 = screen.textContent;
+    screen.textContent = '';
+})
+
 // Stores the num2 variable and executes the operate function
 equals.addEventListener('click', function(){
     num2 = screen.textContent;
@@ -91,8 +97,9 @@ function operate(num1, operator, num2){
     } else if (operator === '-'){
         result = Number(num1) - Number(num2);
         return screen.textContent = result;
-    } else if (operator === 'x'){
-        multiply(num1, num2);
+    } else if (operator === '*'){
+        result = Number(num1) * Number(num2);
+        return screen.textContent = result;
     } else if (operator === '/'){
         return divides(num1, num2)
     }
