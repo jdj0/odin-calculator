@@ -75,6 +75,12 @@ multiply.addEventListener('click', function(){
     screen.textContent = '';
 })
 
+divide.addEventListener('click', function(){
+    operator = '/'
+    num1 = screen.textContent;
+    screen.textContent = '';
+})
+
 // Stores the num2 variable and executes the operate function
 equals.addEventListener('click', function(){
     num2 = screen.textContent;
@@ -101,6 +107,7 @@ function operate(num1, operator, num2){
         result = Number(num1) * Number(num2);
         return screen.textContent = result;
     } else if (operator === '/'){
-        return divides(num1, num2)
+        result = Number(num1) / Number(num2);
+        return screen.textContent = result;
     }
 }
