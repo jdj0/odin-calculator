@@ -61,10 +61,15 @@ plus.addEventListener('click', function(){
     operator = '+'
     num1 = screen.textContent;
     screen.textContent = '';
-    console.log(operator)
-    console.log(num1)
 })
 
+minus.addEventListener('click', function(){
+    operator = '-'
+    num1 = screen.textContent;
+    screen.textContent = '';
+})
+
+// Stores the num2 variable and executes the operate function
 equals.addEventListener('click', function(){
     num2 = screen.textContent;
     return operate(num1, operator, num2)
@@ -79,33 +84,13 @@ trash.addEventListener('click', function(){
     screen.textContent = '';
 })
 
-
-function add(a, b){
-    return a + b;
-}
-
-function subtract(a, b){
-    return a - b;
-}
-
-function multiply(a, b){
-    return a * b;
-}
-
-function divides(a, b){
-    return a / b;
-}
-
-function clear(){
-
-}
-
 function operate(num1, operator, num2){
     if (operator === '+'){
         result = Number(num1) + Number(num2);
         return screen.textContent = result;
     } else if (operator === '-'){
-        return subtract(num1, num2);
+        result = Number(num1) - Number(num2);
+        return screen.textContent = result;
     } else if (operator === 'x'){
         multiply(num1, num2);
     } else if (operator === '/'){
