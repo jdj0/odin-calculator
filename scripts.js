@@ -15,14 +15,14 @@ const multiply = document.getElementById('x');
 const divide = document.getElementById('÷');
 const equals = document.getElementById('=');
 const trash = document.getElementById('trash');
-
 const screen = document.getElementById('output')
+
 
 // Stores variables for calculations 
 let num1 = '';
 let operator = '';
 let num2 = '';
-let result = '';
+
 
 // Event listeners to numbers buttons
 zero.addEventListener('click', function(){
@@ -56,12 +56,23 @@ nine.addEventListener('click', function(){
     screen.textContent += 9;
 })
 
+
 // Stores num1 variable and operator variable
 plus.addEventListener('click', function(){
-    operator = '+'
-    num1 = screen.textContent;
-    screen.textContent = '';
-})
+    if (num1 === ''){
+        console.log(operator = '+')
+        console.log(num1 = screen.textContent)
+        screen.textContent = '';
+    } else {
+        num2 = screen.textContent;
+        operate(num1, operator, num2);
+        screen.textContent = num1;
+        console.log('num1:', num1, 'operator:', operator, 'num2:', num2);
+        operator = '';
+        num2 = '';
+        console.log('num1:', num1, 'operator:', operator, 'num2:', num2);
+    }
+});
 
 minus.addEventListener('click', function(){
     operator = '-'
@@ -84,9 +95,10 @@ divide.addEventListener('click', function(){
 // Stores the num2 variable and executes the operate function
 equals.addEventListener('click', function(){
     num2 = screen.textContent;
-    return operate(num1, operator, num2)
+    num1 = operate(num1, operator, num2)
+    operator = '';
+    num2 = '';
 })
-
 
 // Clears calculation variables
 trash.addEventListener('click', function(){
@@ -96,18 +108,20 @@ trash.addEventListener('click', function(){
     screen.textContent = '';
 })
 
+
 function operate(num1, operator, num2){
+    num1 = Number(num1)
+    num2 = Number(num2)
     if (operator === '+'){
-        result = Number(num1) + Number(num2);
-        return screen.textContent = result;
+        num1 = num1 += num2;
     } else if (operator === '-'){
-        result = Number(num1) - Number(num2);
-        return screen.textContent = result;
+        num1 = num1 -= num2;
     } else if (operator === '*'){
-        result = Number(num1) * Number(num2);
-        return screen.textContent = result;
+        num1 = num1 *= num2;
     } else if (operator === '/'){
-        result = Number(num1) / Number(num2);
-        return screen.textContent = result;
+        num1 = num1 /= num2;
     }
+    num1 = num1.toString();
+    screen.textContent = '';
+    screen.textContent = num1;
 }
