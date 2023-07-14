@@ -85,7 +85,7 @@ class Calculator {
     }
   }
   
-  
+  // Targets elememts allowing them for use in the code below
   const numberButtons = document.querySelectorAll('[data-number]')
   const operationButtons = document.querySelectorAll('[data-operation]')
   const equalsButton = document.querySelector('[data-equals]')
@@ -96,13 +96,15 @@ class Calculator {
   
   const calculator = new Calculator(previousOperandTextElement, currentOperandTextElement)
   
+  //Add event listener to each number button then append the contents of the numbered div to the display
   numberButtons.forEach(button => {
     button.addEventListener('click', () => {
       calculator.appendNumber(button.innerText)
       calculator.updateDisplay()
     })
   })
-  
+
+  // Add event listener to each operator button that appends operator content to operaton and updates display
   operationButtons.forEach(button => {
     button.addEventListener('click', () => {
       calculator.chooseOperation(button.innerText)
@@ -110,16 +112,18 @@ class Calculator {
     })
   })
   
+   //Add event listener to equals button that triggers the compute function which displays the result of the equation
   equalsButton.addEventListener('click', button => {
     calculator.compute()
     calculator.updateDisplay()
   })
-  
+   //Add event listener which triggers teh clear function that clears all components of the equation
   allClearButton.addEventListener('click', button => {
     calculator.clear()
     calculator.updateDisplay()
   })
   
+   //Add event listener to DEL button that runs the delete function which always removes the last digit on the display by using slice()
   deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
